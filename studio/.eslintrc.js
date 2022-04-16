@@ -1,3 +1,6 @@
+/* TODO Figure out why rule: 'no-unused-vars' is needed for this line.
+ (What is this syntax?)
+ */
 const path = require('path')
 
 module.exports = {
@@ -5,7 +8,9 @@ module.exports = {
   parser: 'babel-eslint',
   rules: {
     'react/prop-types': 0,
-    'object-curly-spacing': ['error', 'never']
+    'object-curly-spacing': 0,
+    'space-before-function-paren': 0,
+    'no-unused-vars': 0
   },
   settings: {
     react: {

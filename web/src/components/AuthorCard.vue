@@ -3,7 +3,9 @@
     <g-image
       alt="Author image"
       class="author__image"
-      :src="$urlForImage($static.settings.author.image, $static.metadata.sanityOptions).width(180).url()"
+      :src="
+        $urlForImage($static.settings.author.image, $static.metadata.sanityOptions).width(180).url()
+      "
       width="180"
       height="180"
       blur="5"
@@ -11,7 +13,7 @@
 
     <h1 v-if="showTitle" class="author__site-title">{{ $static.settings.title }}</h1>
 
-    <p class="author__intro">{{$static.settings.description}}</p>
+    <p class="author__intro">{{ $static.settings.description }}</p>
 
     <p class="author__links">
       <a href="//twitter.com/sanity_io">Follow on Twitter</a>
@@ -59,8 +61,8 @@ query {
 <script>
 export default {
   props: {
-    showTitle: Boolean
-  }
+    showTitle: Boolean,
+  },
 }
 </script>
 

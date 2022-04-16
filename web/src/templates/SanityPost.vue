@@ -11,7 +11,12 @@
         <img
           alt="Cover image"
           v-if="$page.post.mainImage"
-          :src="$urlForImage($page.post.mainImage, $page.metadata.sanityOptions).width(600).auto('format').url()"
+          :src="
+            $urlForImage($page.post.mainImage, $page.metadata.sanityOptions)
+              .width(600)
+              .auto('format')
+              .url()
+          "
         />
       </div>
 
@@ -45,7 +50,7 @@ export default {
     AuthorCard,
     PostMeta,
     PostTags,
-    BlockContent
+    BlockContent,
   },
   metaInfo() {
     return {
@@ -53,11 +58,11 @@ export default {
       meta: [
         {
           name: 'description',
-          content: this.$page.post.description
-        }
-      ]
+          content: this.$page.post.description,
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 

@@ -10,8 +10,8 @@
 <script>
 export default {
   props: {
-    post: Object
-  }
+    post: Object,
+  },
 }
 </script>
 
