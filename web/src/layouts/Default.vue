@@ -8,6 +8,14 @@
       </div>
     </header>
 
+    <ul>
+      <li v-for="edge in $page.categories.edges" :key="edge.title">
+        <router-link :to="`/category/${edge.title}`">
+          {{ edge.node.title }}
+        </router-link>
+      </li>
+    </ul>
+
     <main class="main">
       <slot />
     </main>

@@ -23,6 +23,14 @@
       dataset
     }
   }
+  categories: allSanityCategory {
+    edges {
+      node {
+        id
+        title
+      }
+    }
+  }
   posts: allSanityPost(sortBy: "publishedAt") {
     edges {
       node {
@@ -75,6 +83,10 @@ export default {
   },
   metaInfo: {
     title: 'Hello, world!',
+  },
+  mounted() {
+    // console.log('Hello, world!')
+    // console.log(this.$page.posts.edges)
   },
 }
 </script>
