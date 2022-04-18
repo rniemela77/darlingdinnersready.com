@@ -6,7 +6,7 @@
     <!-- List posts -->
     <div class="posts">
       <post-card
-        v-for="edge in $page.posts.edges"
+        v-for="edge in displayRecipes"
         :key="edge.node.id"
         :post="edge.node"
         :metadata="$page.metadata"
@@ -21,14 +21,6 @@
     sanityOptions {
       projectId
       dataset
-    }
-  }
-  categories: allSanityCategory {
-    edges {
-      node {
-        id
-        title
-      }
     }
   }
   posts: allSanityPost(sortBy: "publishedAt") {
@@ -84,9 +76,20 @@ export default {
   metaInfo: {
     title: 'Hello, world!',
   },
-  mounted() {
-    // console.log('Hello, world!')
-    // console.log(this.$page.posts.edges)
+  computed: {
+    filterBy() {
+      return this.$route.query.filterBy
+    },
+    recipes() {
+      return this.$page.posts.edges
+    },
+    displayRecipes() {
+      if (this.filterBy) {
+        return this.recipes.filter((recipe) =>
+          recipe.node.categories.some((category) => category.title === this.filterBy)
+        )
+      } else return this.recipes
+    },
   },
 }
 </script>

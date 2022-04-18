@@ -8,13 +8,17 @@
       </div>
     </header>
 
-    <ul>
-      <li v-for="edge in $page.categories.edges" :key="edge.title">
-        <router-link :to="`/category/${edge.title}`">
-          {{ edge.node.title }}
-        </router-link>
-      </li>
-    </ul>
+    <div class="filters">
+      <button @click="resetFilters">All Recipes</button>
+
+      <button
+        v-for="category in $static.categories.edges"
+        :key="category.node.id"
+        @click="pushCategoryFilter(category.node.title)"
+      >
+        {{ category.node.title }}
+      </button>
+    </div>
 
     <main class="main">
       <slot />
@@ -31,6 +35,20 @@
   </div>
 </template>
 
+
+<static-query>
+{
+  categories: allSanityCategory {
+    edges {
+      node {
+        id
+        title
+      }
+    }
+  }
+}
+</static-query>
+
 <script>
 import HeaderLogo from '~/components/HeaderLogo'
 import ToggleTheme from '~/components/ToggleTheme'
@@ -45,6 +63,19 @@ export default {
   components: {
     HeaderLogo,
     ToggleTheme,
+  },
+  methods: {
+    resetFilters() {
+      this.$router.replace({ path: '/' })
+    },
+    pushCategoryFilter(category) {
+      this.$router.push({
+        path: '/',
+        query: {
+          filterBy: category,
+        },
+      })
+    },
   },
 }
 </script>
