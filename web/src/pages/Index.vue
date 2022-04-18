@@ -1,17 +1,6 @@
 <template>
   <Layout :show-logo="false">
-    <!-- Author intro -->
-    <author-card :show-title="true" />
-
-    <!-- List posts -->
-    <div class="posts">
-      <post-card
-        v-for="edge in displayRecipes"
-        :key="edge.node.id"
-        :post="edge.node"
-        :metadata="$page.metadata"
-      />
-    </div>
+    <RecipeList :recipes="displayRecipes" />
   </Layout>
 </template>
 
@@ -23,7 +12,7 @@
       dataset
     }
   }
-  posts: allSanityPost(sortBy: "publishedAt") {
+  recipes: allSanityRecipe(sortBy: "publishedAt") {
     edges {
       node {
         id
@@ -36,7 +25,6 @@
           title
         }
         publishedAt(format: "D. MMMM YYYY")
-        _rawExcerpt
         mainImage {
           asset {
             _id
@@ -44,18 +32,6 @@
           }
           caption
           alt
-          hotspot {
-            x
-            y
-            height
-            width
-          }
-          crop {
-            top
-            bottom
-            left
-            right
-          }
         }
       }
     }
@@ -67,11 +43,13 @@
 <script>
 import AuthorCard from '~/components/AuthorCard'
 import PostCard from '~/components/PostCard'
+import RecipeList from '~/components/RecipeList'
 
 export default {
   components: {
     AuthorCard,
     PostCard,
+    RecipeList,
   },
   metaInfo: {
     title: 'Hello, world!',
@@ -81,12 +59,14 @@ export default {
       return this.$route.query.filterBy
     },
     recipes() {
-      return this.$page.posts.edges
+      return this.$page.recipes.edges
     },
     displayRecipes() {
       if (this.filterBy) {
         return this.recipes.filter((recipe) =>
-          recipe.node.categories.some((category) => category.title === this.filterBy)
+          recipe.node.categories.some(
+            (category) => category.title === this.filterBy
+          )
         )
       } else return this.recipes
     },
