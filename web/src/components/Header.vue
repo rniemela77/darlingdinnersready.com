@@ -6,13 +6,16 @@
       <g-link
         to="/"
         @click="resetFilters"
-        :class="['nav-link', { 'nav-link--active': !$route.query.filterBy }]"
+        :class="[
+          'nav-link',
+          { 'nav-link--active': !$route.query.filterBy && $route.path === '/' },
+        ]"
       >
         All Recipes
       </g-link>
 
       <g-link
-        v-for="category in $static.categories.edges"
+        v-for="category in orderedCategories"
         :key="category.node.id"
         :class="[
           'nav-link',
@@ -41,6 +44,24 @@
 
 <script>
 export default {
+  computed: {
+    orderedCategories() {
+      // Sort categories in the order of: Breakfast, Lunch, Dinner, Dessert, Sides, Drinks
+      return this.$static.categories.edges.sort((a, b) => {
+        const categories = [
+          'Breakfast',
+          'Lunch',
+          'Dinner',
+          'Dessert',
+          'Sides',
+          'Drinks',
+        ]
+        return (
+          categories.indexOf(a.node.title) - categories.indexOf(b.node.title)
+        )
+      })
+    },
+  },
   methods: {
     resetFilters() {
       this.$router.replace({ path: '/' })
