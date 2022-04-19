@@ -1,6 +1,13 @@
 <template>
   <Layout :show-logo="false">
-    <RecipeList :recipes="displayRecipes" />
+    <div class="recipe-list">
+      <RecipeCard
+        v-for="recipe in displayRecipes"
+        :key="recipe.node.id"
+        :recipe="recipe"
+        class="recipe-card"
+      />
+    </div>
   </Layout>
 </template>
 
@@ -41,18 +48,14 @@
 </page-query>
 
 <script>
-import AuthorCard from '~/components/AuthorCard'
-import PostCard from '~/components/PostCard'
-import RecipeList from '~/components/RecipeList'
+import RecipeCard from '~/components/RecipeCard'
 
 export default {
   components: {
-    AuthorCard,
-    PostCard,
-    RecipeList,
+    RecipeCard,
   },
   metaInfo: {
-    title: 'Hello, world!',
+    title: 'DarlingDinnersReady Recipe List',
   },
   computed: {
     filterBy() {
@@ -73,3 +76,19 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.recipe-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.recipe-card {
+  flex: 0 1 50%;
+  padding: 1rem;
+}
+@media screen and (max-width: 850px) {
+  .recipe-card {
+    flex: 0 0 100%;
+  }
+}
+</style>
