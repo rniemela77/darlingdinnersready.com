@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div class="bg"></div>
     <!-- <header-logo v-if="showLogo" /> -->
     <Header />
 
@@ -44,6 +45,20 @@ export default {
 </script>
 
 <style lang="scss">
+.bg {
+  // TODO: selfhost image
+  // TODO: edit image instead of using css
+  background-image: url('https://images.pexels.com/photos/1568607/pexels-photo-1568607.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  position: fixed;
+  mix-blend-mode: multiply;
+  filter: grayscale(30%) hue-rotate(200deg);
+  opacity: 0.1;
+}
 .main {
   background: var(--color-main-bg);
   max-width: var(--content-width);

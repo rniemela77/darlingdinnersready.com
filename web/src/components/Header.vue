@@ -82,33 +82,61 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Kristi&display=swap');
 
 .header {
-  padding: 10rem 2rem 0;
+  padding: clamp(2rem, 5vw, 10rem) 0 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  width: var(--content-width);
+  justify-content: space-between;
+  align-items: flex-end;
+  max-width: var(--content-width);
   margin: 0 auto;
 }
 .header-title {
   font-family: 'Kristi', cursive;
   font-size: 4rem;
-  text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.448);
   font-weight: normal;
   margin: 0;
   padding: 0;
   text-align: center;
-  flex: 0 0 100%;
   color: var(--color-title);
+
+  position: relative;
+  line-height: unset;
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-image: url(https://www.pngall.com/wp-content/uploads/5/Dry-Brush-Stroke-PNG-Free-Image.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+    mix-blend-mode: color-burn;
+    opacity: 0.4;
+    filter: hue-rotate(175deg);
+    transform: rotate(4deg) translateY(14px);
+  }
 }
 .nav-link {
   text-decoration: none;
   display: inline-block;
   padding: 0.25rem 1rem;
-  transition: background var(--transition-speed), color var(--transition-speed);
+  transition: background var(--transition-speed);
   color: var(--color-font-dark);
   &.nav-link--active {
     background: var(--color-main-bg);
+  }
+}
+@media screen and (max-width: 1140px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .header-title {
+    line-height: unset;
   }
 }
 </style>

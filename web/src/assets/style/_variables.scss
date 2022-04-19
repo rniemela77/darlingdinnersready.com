@@ -12,9 +12,10 @@ body {
   --link-color: #6b17e6;
   --border-color: rgba(0, 0, 0, 0.1);
   --space: 3.5rem;
-  --content-width: 1000px;
   --header-height: 80px;
   --radius: 5px;
+
+  --content-width: 1200px;
 
   --color-accent--1: #d9d2cc;
   --color-accent--2: #f2f1ef;
@@ -23,7 +24,7 @@ body {
   --color-accent--5: #723e31;
 
   --color-bg: rgb(230, 222, 213);
-  --color-title: rgb(104, 74, 40);
+  --color-title: rgb(73, 38, 33);
   --color-font-dark: rgb(59, 56, 56);
   --color-main-bg: rgb(250, 243, 239);
 
@@ -33,7 +34,7 @@ body {
 // Make  things smaller for mobile
 @media screen and (max-width: 650px) {
   html {
-    --base-font-size: 17px;
+    // --base-font-size: 17px;
   }
   body {
     --space: 1.5rem;
