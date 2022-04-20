@@ -4,8 +4,8 @@
       <RecipeCard
         v-for="recipe in displayRecipes"
         :key="recipe.node.id"
+        class="recipe-card-wrap"
         :recipe="recipe"
-        class="recipe-card"
       />
     </div>
   </Layout>
@@ -24,6 +24,7 @@
       node {
         id
         title
+        shortDescription
         slug {
           current
         }
@@ -81,14 +82,16 @@ export default {
 .recipe-list {
   display: flex;
   flex-wrap: wrap;
+  padding: 2rem clamp(0rem, 1vw, 4rem);
 }
-.recipe-card {
-  flex: 0 1 50%;
-  padding: 1rem;
+$recipe-card-spacing: 1rem;
+.recipe-card-wrap {
+  flex: 0 1 calc(50% - $recipe-card-spacing * 2);
+  margin: $recipe-card-spacing;
 }
 @media screen and (max-width: 850px) {
-  .recipe-card {
-    flex: 0 0 100%;
+  .recipe-card-wrap {
+    flex: 0 0 calc(100% - $recipe-card-spacing * 2);
   }
 }
 </style>

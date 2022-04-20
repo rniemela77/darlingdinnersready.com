@@ -93,7 +93,6 @@ export default {
 .header-title {
   font-family: 'Kristi', cursive;
   font-size: 4rem;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.448);
   font-weight: normal;
   margin: 0;
   padding: 0;
