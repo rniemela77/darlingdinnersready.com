@@ -5,6 +5,31 @@
     </g-link>
 
     <nav class="nav">
+      <div class="social-media-links">
+        <a
+          href="https://www.youtube.com/channel/UCacKyQXP6G4L5BdCcpdik6g/videos"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-media-link"
+          aria-label="Open YouTube channel"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xml:space="preserve"
+            viewBox="0 0 256 256"
+            height="32"
+            width="32"
+          >
+            <g fill="none" stroke-miterlimit="10" stroke-width="0">
+              <path
+                fill="red"
+                d="M249 67c-3-11-12-19-23-22-19-5-98-5-98-5s-79 0-98 5C19 48 10 56 7 67c-5 20-5 61-5 61s0 41 5 61c3 11 12 19 23 22 19 5 98 5 98 5s79 0 98-5c11-3 20-11 23-22 5-20 5-61 5-61s0-41-5-61z"
+              />
+              <path fill="#fff" d="m103 167 64-39-64-36z" />
+            </g>
+          </svg>
+        </a>
+      </div>
       <g-link
         to="/"
         @click="resetFilters"
@@ -127,17 +152,23 @@ export default {
     }
   }
 }
-.nav {
-  position: relative;
-  &::before {
-    content: 'View';
-    position: absolute;
-    top: -1rem;
-    left: 0;
-    font-size: 14px;
-    color: var(--color-font-dark);
-    opacity: 0.7;
+.social-media-links {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  .social-media-link {
+    opacity: 0.5;
+    transition: opacity var(--transition-speed);
+    &:hover {
+      opacity: 1;
+    }
   }
+}
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 .nav-link {
   text-decoration: none;
@@ -157,6 +188,17 @@ export default {
     margin-right: 0.2rem;
   }
   position: relative;
+  &:first-of-type {
+    &::before {
+      content: 'View';
+      position: absolute;
+      top: -1rem;
+      left: 0;
+      font-size: 14px;
+      color: var(--color-font-dark);
+      opacity: 0.7;
+    }
+  }
 }
 @media screen and (max-width: 1140px) {
   .header {
@@ -164,7 +206,7 @@ export default {
     align-items: center;
   }
   .header-title {
-    line-height: unset;
+    margin-bottom: 2rem;
   }
 }
 </style>
