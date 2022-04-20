@@ -64,6 +64,7 @@ export default {
   max-width: var(--content-max-width);
   width: var(--content-width);
   margin: 0 auto;
+  padding: 2rem clamp(0rem, 2vw, 4rem);
 }
 .footer {
   display: flex;

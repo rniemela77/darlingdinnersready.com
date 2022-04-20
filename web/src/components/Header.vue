@@ -1,6 +1,8 @@
 <template>
   <header class="header">
-    <h1 class="header-title">Darling Dinner's Ready</h1>
+    <g-link to="/" class="header-title">
+      <h1 class="header-title-text">Darling Dinner's Ready</h1>
+    </g-link>
 
     <nav class="nav">
       <g-link
@@ -92,16 +94,17 @@ export default {
   margin: 0 auto;
 }
 .header-title {
-  font-family: 'Kristi', cursive;
-  font-size: 4rem;
-  font-weight: normal;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  color: var(--color-title);
-
+  text-decoration: none;
   position: relative;
   line-height: unset;
+  .header-title-text {
+    color: var(--color-title);
+    font-family: 'Kristi', cursive;
+    font-size: 4rem;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+  }
   &::after {
     position: absolute;
     top: 0;
@@ -119,6 +122,23 @@ export default {
     filter: hue-rotate(175deg);
     transform: rotate(4deg) translateY(14px);
   }
+  &:hover {
+    &::after {
+      opacity: 0.6;
+    }
+  }
+}
+.nav {
+  position: relative;
+  &::before {
+    content: 'Viewing';
+    position: absolute;
+    top: -1rem;
+    left: 0;
+    font-size: 12px;
+    color: var(--color-font-dark);
+    opacity: 0.7;
+  }
 }
 .nav-link {
   text-decoration: none;
@@ -126,8 +146,9 @@ export default {
   padding: 0.25rem 1rem;
   transition: background var(--transition-speed);
   color: var(--color-font-dark);
+  background: var(--color-nav-link);
   &.nav-link--active {
-    background: var(--color-nav-link);
+    background: var(--color-nav-link--active);
   }
   &:hover:not(.nav-link--active) {
     background: var(--color-nav-link--hover);
@@ -135,6 +156,7 @@ export default {
   &:not(:last-of-type) {
     margin-right: 0.2rem;
   }
+  position: relative;
 }
 @media screen and (max-width: 1140px) {
   .header {

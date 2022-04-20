@@ -86,24 +86,25 @@ export default {
 </script>
 
 <style lang="scss">
+$recipe-list-gap: 2%;
 .recipe-list {
   display: flex;
   flex-wrap: wrap;
-  padding: 2rem clamp(0rem, 1vw, 4rem);
+  justify-content: space-between;
 }
 .recipe-list-header {
   flex: 0 0 100%;
-  margin: 0 clamp(0rem, 3vw, 1rem);
+  margin: 0 0 1rem;
   color: var(--color-font-dark);
 }
 $recipe-card-spacing: clamp(0rem, 3vw, 1rem);
 .recipe-card-wrap {
-  flex: 0 1 calc(50% - $recipe-card-spacing * 2);
-  margin: $recipe-card-spacing;
+  flex: 0 1 calc(50% - $recipe-list-gap);
+  margin-bottom: 1rem;
 }
 @media screen and (max-width: 850px) {
   .recipe-card-wrap {
-    flex: 0 0 calc(100% - $recipe-card-spacing * 2);
+    flex: 0 0 100%;
   }
 }
 </style>
