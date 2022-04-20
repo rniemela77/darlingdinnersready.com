@@ -44,8 +44,28 @@ query Recipe ($id: ID!) {
   }
   recipe: sanityRecipe (id: $id) {
     title
+    youtubeUrl
     shortDescription
     publishedAt (format: "D. MMMM YYYY")
+    mainImage {
+      asset {
+        _id
+        url
+      }
+      caption
+      alt
+    }
+    categories {
+      id
+      title
+    }
+    _rawInformation
+    _rawIngredients
+    prepTime
+    cookTime
+    servings
+    _rawStepsList
+    _rawClosingThoughts
   }
 }
 </page-query>

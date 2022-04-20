@@ -93,9 +93,9 @@ export default {
       title: 'Steps'
     },
     {
-      name: 'body',
+      name: 'closingThoughts',
       type: 'bodyPortableText',
-      title: 'End notes',
+      title: 'Closing Thoughts',
       description: 'Closing thoughts, tips, etc. This is the last thing on the recipe page.'
     }
   ],
