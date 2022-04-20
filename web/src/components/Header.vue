@@ -96,7 +96,6 @@ export default {
 .header-title {
   text-decoration: none;
   position: relative;
-  line-height: unset;
   .header-title-text {
     color: var(--color-title);
     font-family: 'Kristi', cursive;
@@ -131,11 +130,11 @@ export default {
 .nav {
   position: relative;
   &::before {
-    content: 'Viewing';
+    content: 'View';
     position: absolute;
     top: -1rem;
     left: 0;
-    font-size: 12px;
+    font-size: 14px;
     color: var(--color-font-dark);
     opacity: 0.7;
   }
@@ -147,6 +146,7 @@ export default {
   transition: background var(--transition-speed);
   color: var(--color-font-dark);
   background: var(--color-nav-link);
+  font-size: 20px;
   &.nav-link--active {
     background: var(--color-nav-link--active);
   }
