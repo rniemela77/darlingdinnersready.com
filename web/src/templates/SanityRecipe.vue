@@ -65,7 +65,6 @@ query Recipe ($id: ID!) {
     cookTime
     servings
     _rawStepsList
-    _rawClosingThoughts
   }
 }
 </page-query>

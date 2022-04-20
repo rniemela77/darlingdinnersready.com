@@ -91,12 +91,6 @@ export default {
       name: 'stepsList',
       type: 'bodyPortableText',
       title: 'Steps'
-    },
-    {
-      name: 'closingThoughts',
-      type: 'bodyPortableText',
-      title: 'Closing Thoughts',
-      description: 'Closing thoughts, tips, etc. This is the last thing on the recipe page.'
     }
   ],
   orderings: [
