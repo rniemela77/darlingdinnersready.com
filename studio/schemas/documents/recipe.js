@@ -66,7 +66,7 @@ export default {
     {
       name: 'ingredients',
       type: 'bodyPortableText',
-      title: 'Recipe Information',
+      title: 'Ingredients List',
       description: 'Information about the recipe. Shows up before ingredients & steps'
     },
     {
