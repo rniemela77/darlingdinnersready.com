@@ -85,7 +85,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 $recipe-list-gap: 2%;
 .recipe-list {
   display: flex;

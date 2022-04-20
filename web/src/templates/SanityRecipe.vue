@@ -69,5 +69,5 @@ query Recipe ($id: ID!) {
 }
 </page-query>
 
-<style lang="scss">
+<style lang="scss" scoped>
 </style>
