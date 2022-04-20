@@ -15,7 +15,8 @@ body {
   --header-height: 80px;
   --radius: 5px;
 
-  --content-width: 1200px;
+  --content-max-width: 1200px;
+  --content-width: 95%;
 
   --color-accent--1: #d9d2cc;
   --color-accent--2: #f2f1ef;
@@ -25,10 +26,11 @@ body {
 
   --color-bg: rgb(230, 222, 213);
   --color-title: rgb(73, 38, 33);
-  --color-font-dark: rgb(59, 56, 56);
+  --color-font-dark: rgb(78, 57, 57);
   --color-font-light: rgb(243, 236, 236);
   --color-main-bg: rgb(250, 243, 239);
-
+  --color-nav-link: rgb(250, 243, 239);
+  --color-nav-link--hover: rgba(250, 243, 239, 0.7);
   --transition-speed: 0.2s ease-in-out;
 }
 

@@ -17,7 +17,7 @@
       loading="lazy"
     />
     <div class="recipe-info">
-      <h2 class="recipe-title">{{ recipe.node.title }}</h2>
+      <h3 class="recipe-title">{{ recipe.node.title }}</h3>
       <p class="recipe-description">{{ recipe.node.shortDescription }}</p>
       <p class="recipe-categories">{{ displayedCategories }}</p>
     </div>
@@ -40,24 +40,26 @@ export default {
 </script>
 
 <style lang="scss">
+$title-left-spacing: 0.5rem;
 .recipe {
   display: flex;
   flex-direction: column;
   position: relative;
-  transition: background var(--transition-speed);
   transition: background var(--transition-speed),
     box-shadow var(--transition-speed);
   border: 3px solid #ece5dc;
   &:hover {
     background: rgba(255, 255, 255, 0.8);
     box-shadow: 0 0 1rem 0.5rem rgb(104 46 23 / 10%);
+    & .recipe-title {
+      transform: translate($title-left-spacing, -20px);
+    }
   }
 }
 .recipe-info {
   padding: 0 0.5rem 1rem;
 }
 .recipe-title {
-  $title-left-spacing: 0.5rem;
   margin: 0;
   transform: translate($title-left-spacing, -15px);
   padding: 0.25rem 1rem;
@@ -66,6 +68,7 @@ export default {
   max-width: calc(100% - $title-left-spacing);
   background: #b99e9e;
   color: var(--color-font-light);
+  transition: transform var(--transition-speed);
 }
 .recipe-categories {
   font-style: italic;

@@ -87,7 +87,8 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-end;
-  max-width: var(--content-width);
+  max-width: var(--content-max-width);
+  width: var(--content-width);
   margin: 0 auto;
 }
 .header-title {
@@ -126,7 +127,13 @@ export default {
   transition: background var(--transition-speed);
   color: var(--color-font-dark);
   &.nav-link--active {
-    background: var(--color-main-bg);
+    background: var(--color-nav-link);
+  }
+  &:hover:not(.nav-link--active) {
+    background: var(--color-nav-link--hover);
+  }
+  &:not(:last-of-type) {
+    margin-right: 0.2rem;
   }
 }
 @media screen and (max-width: 1140px) {

@@ -61,8 +61,8 @@ export default {
 }
 .main {
   background: var(--color-main-bg);
-  max-width: var(--content-width);
-  width: 95%;
+  max-width: var(--content-max-width);
+  width: var(--content-width);
   margin: 0 auto;
 }
 .footer {

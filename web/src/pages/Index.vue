@@ -1,6 +1,7 @@
 <template>
   <Layout :show-logo="false">
     <div class="recipe-list">
+      <h2 class="recipe-list-header">{{ recipeListHeader }}</h2>
       <RecipeCard
         v-for="recipe in displayRecipes"
         :key="recipe.node.id"
@@ -59,6 +60,12 @@ export default {
     title: 'DarlingDinnersReady Recipe List',
   },
   computed: {
+    recipeListHeader() {
+      if (this.$route.query.filterBy) {
+        return `${this.$route.query.filterBy} Recipes`
+      }
+      return 'All Recipes'
+    },
     filterBy() {
       return this.$route.query.filterBy
     },
@@ -84,7 +91,12 @@ export default {
   flex-wrap: wrap;
   padding: 2rem clamp(0rem, 1vw, 4rem);
 }
-$recipe-card-spacing: 1rem;
+.recipe-list-header {
+  flex: 0 0 100%;
+  margin: 0 clamp(0rem, 3vw, 1rem);
+  color: var(--color-font-dark);
+}
+$recipe-card-spacing: clamp(0rem, 3vw, 1rem);
 .recipe-card-wrap {
   flex: 0 1 calc(50% - $recipe-card-spacing * 2);
   margin: $recipe-card-spacing;
