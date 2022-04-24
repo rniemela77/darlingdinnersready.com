@@ -15,6 +15,9 @@
       />
 
       <div class="video-container">
+        <p class="published-at" v-if="$page.recipe.publishedAt">
+          Published on {{ $page.recipe.publishedAt }}
+        </p>
         <a
           v-if="$page.recipe.youtubeUrl"
           :href="$page.recipe.youtubeUrl"
@@ -38,35 +41,44 @@
       </div>
 
       <div class="info">
-        <h3 class="header">Info:</h3>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xml:space="preserve"
+          viewBox="0 0 490 490"
+          height="20px"
+          width="20px"
+        >
+          <path
+            d="M245 0C109.5 0 0 109.5 0 245s109.5 245 245 245 245-109.5 245-245S380.5 0 245 0zm0 449.3c-112.6 0-204.3-91.7-204.3-204.3S132.4 40.7 245 40.7 449.3 132.4 449.3 245 357.6 449.3 245 449.3z"
+          />
+          <path
+            d="M290.9 224.1h-25v-95.9c0-11.5-9.4-20.9-20.9-20.9s-20.9 9.4-20.9 20.9V245a21 21 0 0 0 20.9 20.9h45.9c11.5 0 20.9-9.4 20.9-20.9s-9.5-20.9-20.9-20.9z"
+          />
+        </svg>
+        <h3 class="header">Recipe Info:</h3>
         <p class="info-prep" v-if="$page.recipe.prepTime">
-          Prep Time: {{ $page.recipe.prepTime }}
+          <b>Prep:</b> {{ $page.recipe.prepTime }}
         </p>
 
         <p class="info-cook" v-if="$page.recipe.cookTime">
-          Cook Time: {{ $page.recipe.cookTime }}
+          <b>Cook:</b> {{ $page.recipe.cookTime }}
         </p>
 
         <p class="info-servings" v-if="$page.recipe.servings">
-          Serves: {{ $page.recipe.servings }}
+          <b>Servings:</b> {{ $page.recipe.servings }}
         </p>
 
         <p class="info-categories" v-if="$page.recipe.categories">
-          <span
+          <g-link
             v-for="category in $page.recipe.categories"
             :key="category.title"
+            >{{ category.title }}</g-link
           >
-            #{{ category.title }}
-          </span>
         </p>
       </div>
 
       <div class="body">
         <h2 class="title">{{ $page.recipe.title }}</h2>
-
-        <p class="published-at" v-if="$page.recipe.publishedAt">
-          Published on {{ $page.recipe.publishedAt }}
-        </p>
 
         <div class="short-description" v-if="$page.recipe.shortDescription">
           <h3 class="header">Description</h3>
@@ -85,7 +97,7 @@
           </div>
 
           <div class="steps" v-if="$page.recipe._rawStepsList">
-            <h3 class="header">Steps</h3>
+            <h3 class="header">Directions</h3>
             <block-content :blocks="$page.recipe._rawStepsList" />
           </div>
         </div>
@@ -207,8 +219,16 @@ query Recipe ($id: ID!) {
 }
 
 .info {
-  background: white;
   padding: 1rem;
+  background: white;
+  border-left: 3px solid var(--color-font-dark);
+  b {
+    font-weight: bold;
+  }
+}
+.info-categories {
+  font-style: italic;
+  font-size: 80%;
 }
 
 .title {
@@ -225,12 +245,11 @@ query Recipe ($id: ID!) {
 
 .ingredients,
 .steps {
-  padding: 1rem;
 }
 .ingredients {
   box-shadow: 0 0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.11);
   .header {
-    margin-bottom: 0.5rem;
+    // margin-bottom: 0.5rem;
   }
   ::v-deep *:not(h3) {
     line-height: 2rem;
@@ -248,10 +267,8 @@ query Recipe ($id: ID!) {
   );
 }
 .header {
-  background: var(--color-font-dark);
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  color: var(--color-font-light);
+  color: var(--color-font-dark);
+  // margin-bottom: 1rem;
 }
 
 .information {
@@ -267,8 +284,9 @@ query Recipe ($id: ID!) {
 .row {
   display: flex;
   align-items: flex-start;
-  .ingredients {
-    flex: 50%;
+  .ingredients,
+  .steps {
+    flex: 0 0 50%;
   }
   .ingredients {
     order: 2;
