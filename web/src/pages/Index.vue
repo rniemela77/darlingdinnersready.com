@@ -33,7 +33,7 @@
           id
           title
         }
-        publishedAt(format: "D. MMMM YYYY")
+        publishedAt(format: "MMMM Do, YYYY")
         mainImage {
           asset {
             _id

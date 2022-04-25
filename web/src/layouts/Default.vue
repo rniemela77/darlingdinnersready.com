@@ -9,14 +9,16 @@
     </main>
 
     <footer class="footer">
-      <span class="footer__copyright"
-        >Copyright © {{ new Date().getFullYear() }}.</span
-      >
-      <span class="footer__links">
-        Powered by
-        <a href="//gridsome.org">Gridsome</a> &amp;
-        <a href="//www.sanity.io">Sanity.io</a>
-      </span>
+      <p class="footer-title">Darling Dinner's Ready</p>
+      <p>Copyright © {{ new Date().getFullYear() }}.</p>
+      <p>
+        Contact the author at
+        <a href="mailto:frozentears05@msn.com">frozentears05@msn.com</a>
+      </p>
+      <p>
+        Contact the developer at
+        <a href="mailto:rvniemela@hotmail.com">rvniemela@hotmail.com</a>
+      </p>
     </footer>
   </div>
 </template>
@@ -67,19 +69,16 @@ export default {
   padding: 2rem clamp(0rem, 2vw, 4rem);
 }
 .footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: calc(var(--space) / 2);
+  padding: 3rem 0;
   text-align: center;
-  font-size: 0.8em;
-
-  > span {
-    margin: 0 0.35em;
+  color: var(--color-font-dark);
+  font-size: 0.8rem;
+  .footer-title {
+    font-size: 1.25rem;
+    padding: 1rem 0;
   }
-
   a {
-    color: currentColor;
+    color: var(--color-font-dark);
   }
 }
 </style>

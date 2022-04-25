@@ -19,22 +19,22 @@
     <div class="recipe-info">
       <h3 class="recipe-title">{{ recipe.node.title }}</h3>
       <p class="recipe-description">{{ recipe.node.shortDescription }}</p>
-      <p class="recipe-categories">{{ displayedCategories }}</p>
+      <p class="recipe-categories">
+        <Categories :categories="recipe.node.categories" />
+      </p>
     </div>
   </div>
 </template>
 
 <script>
+import Categories from '~/components/Categories'
+
 export default {
+  components: {
+    Categories,
+  },
   props: {
     recipe: Object,
-  },
-  computed: {
-    displayedCategories() {
-      return this.recipe.node.categories
-        .map((category) => category.title)
-        .join(', ')
-    },
   },
 }
 </script>
