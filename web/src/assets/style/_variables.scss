@@ -13,16 +13,20 @@ body {
   --color-accent--3: #d9b18e;
   --color-accent--4: #a67564;
   --color-accent--5: #723e31;
-
+  --color-accent--6: #597081;
+  --color-accent--7: #795c5f;
   --color-bg: rgb(230, 222, 213);
-  --color-title: rgb(73, 38, 33);
   --color-font-dark: rgb(78, 57, 57);
+  --color-font-medium: #7c5252;
+  --color-font-grey: rgb(161, 142, 142);
   --color-font-light: rgb(243, 236, 236);
   --color-main-bg: rgb(250, 243, 239);
   --color-nav-link: rgba(250, 243, 239, 0.4);
   --color-nav-link--active: rgb(250, 243, 239);
   --color-nav-link--hover: rgba(250, 243, 239, 0.8);
   --transition-speed: 0.2s ease-in-out;
+
+  --font-family-title: 'Kristi', 'Garamond', serif;
 }
 
 // Make  things smaller for mobile

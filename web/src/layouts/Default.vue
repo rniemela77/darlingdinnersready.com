@@ -74,7 +74,8 @@ export default {
   color: var(--color-font-dark);
   font-size: 0.8rem;
   .footer-title {
-    font-size: 1.25rem;
+    font-family: var(--font-family-title);
+    font-size: 2rem;
     padding: 1rem 0;
   }
   a {

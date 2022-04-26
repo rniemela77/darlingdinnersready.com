@@ -102,7 +102,7 @@ $recipe-card-spacing: clamp(0rem, 3vw, 1rem);
   flex: 0 1 calc(50% - $recipe-list-gap);
   margin-bottom: 1rem;
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 700px) {
   .recipe-card-wrap {
     flex: 0 0 100%;
   }

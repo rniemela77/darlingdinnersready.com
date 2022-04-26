@@ -7,6 +7,8 @@
             class="main-image"
             :alt="$page.recipe.title"
             v-if="$page.recipe.mainImage"
+            width="800"
+            height="auto"
             :src="
               $urlForImage($page.recipe.mainImage, $page.metadata.sanityOptions)
                 .width(800)
@@ -177,19 +179,15 @@ query Recipe ($id: ID!) {
     max-width: 400px;
   }
   a {
-    color: var(--color-accent--4);
+    color: var(--color-font-medium);
   }
 }
 .info {
   margin: 1rem 0;
   padding: 1rem;
   background: white;
-  border-left: 3px solid var(--color-font-dark);
   b {
     font-weight: bold;
-  }
-  .info-categories {
-    font-style: italic;
   }
 }
 
@@ -198,6 +196,7 @@ query Recipe ($id: ID!) {
 }
 .description {
   font-style: italic;
+  color: var(--color-accent--4);
 }
 
 .description,
@@ -235,16 +234,19 @@ query Recipe ($id: ID!) {
 }
 
 .title {
-  background: #b99e9e;
-  padding: 0.5rem 1rem;
-  display: inline-block;
   margin: 0;
-  transform: translate(1rem, -1rem);
+  transform: translate(0.5rem, -15px);
+  padding: 0.25rem 1rem;
+  display: inline-block;
+  max-width: calc(100% - 1rem);
+  background: var(--color-font-medium);
   color: var(--color-font-light);
+  transition: transform var(--transition-speed);
 }
 
 .ingredients {
   min-width: 40%;
+  order: 2;
   .ingredients-list {
     display: inline-block;
     padding: 0.4rem 1rem;
@@ -263,17 +265,23 @@ query Recipe ($id: ID!) {
   width: 50%;
   font-size: 4rem;
   margin: 2rem auto;
-  color: var(--color-font-dark);
+  color: var(--color-font-grey);
 }
 .published-at {
   text-align: center;
   display: block;
-  color: grey;
+  color: var(--color-font-grey);
   font-style: italic;
 }
 @media screen and (max-width: 750px) {
+  .image-title {
+    margin-right: 0;
+  }
   .row {
     flex-direction: column;
+  }
+  .steps {
+    order: 2;
   }
   .video-container {
     display: flex;

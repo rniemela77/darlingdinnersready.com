@@ -19,6 +19,8 @@ export default {
 
 <style lang="scss" scoped>
 span {
-  opacity: 0.5;
+  color: var(--color-font-grey);
+  font-size: 90%;
+  font-style: italic;
 }
 </style>
