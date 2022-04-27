@@ -60,9 +60,9 @@
         <h3>{{ $page.recipe.shortDescription }}</h3>
       </div>
 
-      <div class="information" v-if="$page.recipe._rawBody">
+      <div class="information" v-if="$page.recipe._rawInformation">
         <h3 class="header">About</h3>
-        <block-content :blocks="$page.recipe._rawBody" />
+        <block-content :blocks="$page.recipe._rawInformation" />
       </div>
 
       <div class="row">
@@ -149,6 +149,7 @@ query Recipe ($id: ID!) {
     cookTime
     servings
     _rawStepsList
+    _rawInformation
   }
 }
 </page-query>
