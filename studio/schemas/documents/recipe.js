@@ -95,7 +95,7 @@ export default {
     {
       name: 'body',
       type: 'bodyPortableText',
-      title: 'Body'
+      title: 'not body'
     }
   ],
   orderings: [
