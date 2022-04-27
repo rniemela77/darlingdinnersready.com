@@ -19,27 +19,27 @@
     <div class="recipe-info">
       <h3 class="recipe-title">{{ recipe.node.title }}</h3>
       <p class="recipe-description">{{ recipe.node.shortDescription }}</p>
-      <p class="recipe-categories">{{ displayedCategories }}</p>
+      <p class="recipe-categories">
+        <Categories :categories="recipe.node.categories" />
+      </p>
     </div>
   </div>
 </template>
 
 <script>
+import Categories from '~/components/Categories'
+
 export default {
+  components: {
+    Categories,
+  },
   props: {
     recipe: Object,
-  },
-  computed: {
-    displayedCategories() {
-      return this.recipe.node.categories
-        .map((category) => category.title)
-        .join(', ')
-    },
   },
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 $title-left-spacing: 0.5rem;
 .recipe {
   display: flex;
@@ -63,17 +63,11 @@ $title-left-spacing: 0.5rem;
   margin: 0;
   transform: translate($title-left-spacing, -15px);
   padding: 0.25rem 1rem;
-  color: var(--color-font-dark);
   display: inline-block;
-  max-width: calc(100% - $title-left-spacing);
-  background: #b99e9e;
+  max-width: calc(100% - calc($title-left-spacing * 2));
+  background: var(--color-font-medium);
   color: var(--color-font-light);
   transition: transform var(--transition-speed);
-}
-.recipe-categories {
-  font-style: italic;
-  opacity: 0.7;
-  font-size: 90%;
 }
 .recipe-overlay-link {
   position: absolute;

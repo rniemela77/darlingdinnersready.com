@@ -4,48 +4,17 @@
       <h1 class="header-title-text">Darling Dinner's Ready</h1>
     </g-link>
 
-    <nav class="nav">
-      <g-link
-        to="/"
-        @click="resetFilters"
-        :class="[
-          'nav-link',
-          { 'nav-link--active': !$route.query.filterBy && $route.path === '/' },
-        ]"
-      >
-        All Recipes
-      </g-link>
-
-      <g-link
-        v-for="category in orderedCategories"
-        :key="category.node.id"
-        :class="[
-          'nav-link',
-          { 'nav-link--active': $route.query.filterBy === category.node.title },
-        ]"
-        :to="`?filterBy=${category.node.title}`"
-      >
-        {{ category.node.title }}
-      </g-link>
-    </nav>
+    <NavBar />
   </header>
 </template>
 
-<static-query>
-{
-  categories: allSanityCategory {
-    edges {
-      node {
-        id
-        title
-      }
-    }
-  }
-}
-</static-query>
-
 <script>
+import NavBar from '~/components/NavBar'
+
 export default {
+  components: {
+    NavBar,
+  },
   computed: {
     orderedCategories() {
       // Sort categories in the order of: Breakfast, Lunch, Dinner, Dessert, Sides, Drinks
@@ -64,23 +33,10 @@ export default {
       })
     },
   },
-  methods: {
-    resetFilters() {
-      this.$router.replace({ path: '/' })
-    },
-    pushCategoryFilter(category) {
-      this.$router.push({
-        path: '/',
-        query: {
-          filterBy: category,
-        },
-      })
-    },
-  },
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Kristi&display=swap');
 
 .header {
@@ -96,10 +52,9 @@ export default {
 .header-title {
   text-decoration: none;
   position: relative;
-  line-height: unset;
   .header-title-text {
-    color: var(--color-title);
-    font-family: 'Kristi', cursive;
+    color: var(--color-font-dark);
+    font-family: var(--font-family-title);
     font-size: 4rem;
     font-weight: normal;
     margin: 0;
@@ -122,41 +77,6 @@ export default {
     filter: hue-rotate(175deg);
     transform: rotate(4deg) translateY(14px);
   }
-  &:hover {
-    &::after {
-      opacity: 0.6;
-    }
-  }
-}
-.nav {
-  position: relative;
-  &::before {
-    content: 'Viewing';
-    position: absolute;
-    top: -1rem;
-    left: 0;
-    font-size: 12px;
-    color: var(--color-font-dark);
-    opacity: 0.7;
-  }
-}
-.nav-link {
-  text-decoration: none;
-  display: inline-block;
-  padding: 0.25rem 1rem;
-  transition: background var(--transition-speed);
-  color: var(--color-font-dark);
-  background: var(--color-nav-link);
-  &.nav-link--active {
-    background: var(--color-nav-link--active);
-  }
-  &:hover:not(.nav-link--active) {
-    background: var(--color-nav-link--hover);
-  }
-  &:not(:last-of-type) {
-    margin-right: 0.2rem;
-  }
-  position: relative;
 }
 @media screen and (max-width: 1140px) {
   .header {
@@ -164,7 +84,22 @@ export default {
     align-items: center;
   }
   .header-title {
-    line-height: unset;
+    margin-bottom: 2rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .header {
+    align-content: flex-start;
+    padding: 1rem 0;
+    .header-title {
+      margin: 0;
+      &::after {
+        top: -0.5rem;
+      }
+    }
+    .header-title-text {
+      font-size: 2rem;
+    }
   }
 }
 </style>
