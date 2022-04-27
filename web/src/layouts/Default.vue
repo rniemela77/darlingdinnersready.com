@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <div class="bg"></div>
-    <!-- <header-logo v-if="showLogo" /> -->
     <Header />
 
     <main class="main">
@@ -27,20 +26,10 @@
 
 
 <script>
-import HeaderLogo from '~/components/HeaderLogo'
-import ToggleTheme from '~/components/ToggleTheme'
 import Header from '~/components/Header'
 
 export default {
-  props: {
-    showLogo: {
-      type: Boolean,
-      default: true,
-    },
-  },
   components: {
-    HeaderLogo,
-    ToggleTheme,
     Header,
   },
 }
