@@ -58,7 +58,7 @@ export default {
       ]
     },
     {
-      name: 'information',
+      name: 'body',
       type: 'bodyPortableText',
       title: 'Recipe Information',
       description: 'Information about the recipe'
