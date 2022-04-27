@@ -39,7 +39,7 @@ export default {
 .bg {
   // TODO: selfhost image
   // TODO: edit image instead of using css
-  background-image: url('https://images.pexels.com/photos/1568607/pexels-photo-1568607.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+  background-image: url('~@/assets/images/watercolor.jpeg');
   background-size: cover;
   background-attachment: fixed;
   width: 100vw;

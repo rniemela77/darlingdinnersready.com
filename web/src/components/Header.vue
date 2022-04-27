@@ -67,7 +67,7 @@ export default {
     width: 100%;
     height: 100%;
     content: '';
-    background-image: url(https://www.pngall.com/wp-content/uploads/5/Dry-Brush-Stroke-PNG-Free-Image.png);
+    background-image: url('~@/assets/images/brush-stroke.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
