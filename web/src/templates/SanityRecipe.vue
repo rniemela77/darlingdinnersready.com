@@ -3,6 +3,13 @@
     <div>
       <h1>{{ $page.recipe.title }}</h1>
       <p>{{ $page.recipe.shortDescription }}</p>
+      <br />
+      <p>{{ $page.recipe.youtubeUrl }}</p>
+      <br />
+      <p>ingreid sdfsad{{ $page.recipe._rawIngredients }}</p>
+      <br />
+      <p>stepslist {{ $page.recipe._rawStepsList }}</p>
+      <br />
     </div>
   </Layout>
 </template>
@@ -44,8 +51,27 @@ query Recipe ($id: ID!) {
   }
   recipe: sanityRecipe (id: $id) {
     title
+    youtubeUrl
     shortDescription
     publishedAt (format: "D. MMMM YYYY")
+    mainImage {
+      asset {
+        _id
+        url
+      }
+      caption
+      alt
+    }
+    categories {
+      id
+      title
+    }
+    _rawInformation
+    _rawIngredients
+    prepTime
+    cookTime
+    servings
+    _rawStepsList
   }
 }
 </page-query>
