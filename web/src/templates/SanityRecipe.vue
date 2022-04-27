@@ -2,6 +2,7 @@
   <Layout>
     <div>
       <h1>{{ $page.recipe.title }}</h1>
+      <p>{{ $page.recipe._rawBody }}</p>
       <p>{{ $page.recipe.shortDescription }}</p>
       <br />
       <p>{{ $page.recipe.youtubeUrl }}</p>
@@ -72,6 +73,7 @@ query Recipe ($id: ID!) {
     cookTime
     servings
     _rawStepsList
+    _rawBody
   }
 }
 </page-query>

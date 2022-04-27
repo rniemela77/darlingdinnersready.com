@@ -91,6 +91,11 @@ export default {
       name: 'stepsList',
       type: 'bodyPortableText',
       title: 'Steps'
+    },
+    {
+      name: 'body',
+      type: 'bodyPortableText',
+      title: 'Body'
     }
   ],
   orderings: [
