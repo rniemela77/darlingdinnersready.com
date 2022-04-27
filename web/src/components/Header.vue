@@ -78,7 +78,7 @@ export default {
     transform: rotate(4deg) translateY(14px);
   }
 }
-@media screen and (max-width: 1140px) {
+@media screen and (max-width: 1200px) {
   .header {
     flex-direction: column;
     align-items: center;
