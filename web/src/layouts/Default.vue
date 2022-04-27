@@ -55,7 +55,7 @@ export default {
   max-width: var(--content-max-width);
   width: var(--content-width);
   margin: 0 auto;
-  padding: 2rem clamp(0rem, 2vw, 4rem);
+  padding: 2rem;
 }
 .footer {
   padding: 3rem 0;
@@ -69,6 +69,11 @@ export default {
   }
   a {
     color: var(--color-font-dark);
+  }
+}
+@media screen and (max-width: 600px) {
+  .main {
+    padding: 1rem;
   }
 }
 </style>
