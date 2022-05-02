@@ -37,7 +37,6 @@ export default {
 
 <style lang="scss">
 .bg {
-  // TODO: selfhost image
   // TODO: edit image instead of using css
   background-image: url('~@/assets/images/watercolor.jpeg');
   background-size: cover;
