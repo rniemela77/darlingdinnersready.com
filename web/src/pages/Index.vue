@@ -57,7 +57,7 @@ export default {
     RecipeCard,
   },
   metaInfo: {
-    title: 'DarlingDinnersReady Recipe List',
+    title: "Darling Dinner's Ready | Recipes",
   },
   computed: {
     recipeListHeader() {
