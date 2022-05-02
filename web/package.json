@@ -1,5 +1,5 @@
 {
-  "name": "sanity-gridsome-web",
+  "name": "darlingdinnersready-web",
   "private": true,
   "scripts": {
     "build": "gridsome build",
